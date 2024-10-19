@@ -9,7 +9,7 @@ const Hero: FC<HeroProps> = ({}) => {
 				<div className="space-y-5 max-w-4xl mx-auto text-center">
 					<h1 className="text-sm text-indigo-600 font-medium">Level up your React skills</h1>
 					<h2 className="text-4xl text-white font-extrabold mx-auto md:text-5xl">
-						Master React development with{' '}
+						Master React with <br />
 						<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4F46E5] to-[#E114E5]">
 							real-world coding challenges
 						</span>
