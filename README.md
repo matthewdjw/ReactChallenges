@@ -16,9 +16,9 @@
 - [x] Create Challenges List Page (`/challenges.tsx`)
   - [x] Implement `ChallengeCard.tsx` to display individual challenges
   - [x] Set up local data or mock API to display challenges
-- [ ] Create Challenge Details Page (`/challenges/[id].tsx`)
-  - [ ] Fetch challenge details based on ID
-  - [ ] Add placeholder for code editor
+- [x] Create Challenge Details Page (`/challenges/[slug].tsx`)
+  - [x] Fetch challenge details based on ID
+  - [x] Add code editor
 
 ## Phase 2: Expanding Functionality
 
@@ -31,8 +31,8 @@
   - [ ] Add pagination or infinite scrolling for long challenge lists
 
 ### Challenge Details Page Enhancements
-- [ ] Embed a code editor (`CodeEditor.tsx`)
-  - [ ] Allow users to write, preview, and run their solutions
+- [x] Embed a code editor (`CodeEditor.tsx`)
+  - [x] Allow users to write, preview, and run their solutions
 - [ ] Add "Submit Solution" button (Optional for MVP)
   - [ ] Placeholder for solution submission functionality
 
