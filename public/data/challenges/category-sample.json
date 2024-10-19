@@ -1,0 +1,47 @@
+[
+	{
+		"slug": "basics",
+		"name": "Basics",
+		"tags": [ "JSX", "Props", "State", "Conditional Rendering", "Event Handling" ]
+	},
+	{
+		"slug": "hooks",
+		"name": "Hooks",
+		"tags": [ "useState", "useEffect", "useRef" ]
+	},
+	{
+		"slug": "forms",
+		"name": "Forms",
+		"tags": [ "Controlled Components", "Form Validation" ]
+	},
+	{
+		"slug": "lists",
+		"name": "Lists & Arrays",
+		"tags": [ "Rendering Lists", "Keys", "Filtering & Mapping Data" ]
+	},
+	{
+		"slug": "styling",
+		"name": "Styling",
+		"tags": [ "Inline Styles", "CSS Modules", "Tailwind CSS" ]
+	},
+	{
+		"slug": "api-calls",
+		"name": "API Calls",
+		"tags": [ "Fetch API", "Axios" ]
+	},
+	{
+		"slug": "routing",
+		"name": "Routing (React Router)",
+		"tags": [ "Simple Routes", "Navigation" ]
+	},
+	{
+		"slug": "context",
+		"name": "Context",
+		"tags": [ "Basic Context API" ]
+	},
+	{
+		"slug": "performance",
+		"name": "Performance",
+		"tags": [ "React.memo", "useCallback", "useMemo" ]
+	}
+]

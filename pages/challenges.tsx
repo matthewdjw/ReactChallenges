@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { GetServerSideProps } from 'next';
 import Link from 'next/link';
+import ChallengeFilter from '@/components/challenges/ChallengeFilter';
 
 interface Challenge {
 	slug: string;
@@ -14,14 +15,22 @@ interface Challenge {
 	solution: string;
 }
 
-interface ChallengesPageProps {
-	challenges: Challenge[];
+interface Category {
+	slug: string;
+	name: string;
+	tags: string[];
 }
 
-const Challenges: React.FC<ChallengesPageProps> = ({ challenges }) => {
+interface ChallengesPageProps {
+	challenges: Challenge[];
+	categories: Category[];
+}
+
+const Challenges: React.FC<ChallengesPageProps> = ({ challenges, categories }) => {
 	return (
 		<div>
 			<Navbar />
+			<ChallengeFilter categories={categories} />
 			{challenges.map((challenge) => (
 				<div key={challenge.title}>
 					<Link href={`challenges/${challenge.slug}`}>
@@ -34,12 +43,20 @@ const Challenges: React.FC<ChallengesPageProps> = ({ challenges }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const filePath = path.join(process.cwd(), 'public/data/challenges', 'challenge-sample.json');
-	const jsonData = fs.readFileSync(filePath);
-	const challenges: Challenge[] = JSON.parse(jsonData.toString());
+	// Fetching the challenges data
+	const challengeFilePath = path.join(process.cwd(), 'public/data/challenges', 'challenge-sample.json');
+	const challengeJsonData = fs.readFileSync(challengeFilePath);
+	const challenges: Challenge[] = JSON.parse(challengeJsonData.toString());
+
+	// Fetching the categories data
+	const categoryFilePath = path.join(process.cwd(), 'public/data/challenges', 'category-sample.json');
+	const categoryJsonData = fs.readFileSync(categoryFilePath);
+	const categories = JSON.parse(categoryJsonData.toString());
+
 	return {
 		props: {
-			challenges
+			challenges,
+			categories
 		}
 	};
 };
