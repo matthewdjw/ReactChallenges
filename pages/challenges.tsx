@@ -3,6 +3,7 @@ import Navbar from '@/components/common/Navbar';
 import fs from 'fs';
 import path from 'path';
 import { GetServerSideProps } from 'next';
+import Link from 'next/link';
 
 interface Challenge {
 	slug: string;
@@ -23,7 +24,9 @@ const Challenges: React.FC<ChallengesPageProps> = ({ challenges }) => {
 			<Navbar />
 			{challenges.map((challenge) => (
 				<div key={challenge.title}>
-					<ChallengeCard challenge={challenge} />
+					<Link href={`challenges/${challenge.slug}`}>
+						<ChallengeCard challenge={challenge} />
+					</Link>
 				</div>
 			))}
 		</div>
