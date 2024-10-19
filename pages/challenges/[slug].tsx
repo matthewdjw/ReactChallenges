@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import CodeEditor from '../../components/code-editor/CodeEditor';
+import Navbar from '../../components/common/Navbar';
+import ChallengeDetails from '../../components/challenges/ChallengeDetails'
 
 interface Challenge {
   slug: string;
@@ -19,10 +21,11 @@ interface ChallengePageProps {
 export default function ChallengePage({ challenge }: ChallengePageProps) {
   return (
     <div>
-      <CodeEditor />
-      <h1>{challenge.title}</h1>
-      <p>{challenge.description}</p>
-      <pre>{challenge.solution}</pre>
+		<Navbar/>
+		<div className="p-4">
+			<CodeEditor />
+		</div>
+		<ChallengeDetails challenge={challenge} />
     </div>
   );
 }

@@ -16,7 +16,7 @@ interface ChallengeCardProps {
 const ChallengeCard: FC<ChallengeCardProps> = ({ challenge }) => {
 	return (
 		<div className="bg-white shadow-md rounded-lg p-6 m-4">
-			<h1 className="text-2xl font-bold text-gray-800 mb-2">{challenge.title}</h1>
+			<h2 className="text-2xl font-bold text-gray-800 mb-2">{challenge.title}</h2>
 			<p className="text-sm text-gray-600 mb-2">
 				<span className="font-semibold">Difficulty: </span>
 				<span
