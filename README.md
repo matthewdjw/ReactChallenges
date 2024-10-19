@@ -12,10 +12,10 @@
 ### Core Pages and Components
 - [x] Create Homepage (`index.tsx`)
   - [x] Add hero section with CTA
-  - [ ] Build reusable `Navbar` and `Footer` components
-- [ ] Create Challenges List Page (`/challenges.tsx`)
-  - [ ] Implement `ChallengeCard.tsx` to display individual challenges
-  - [ ] Set up local data or mock API to display challenges
+  - [] Build reusable `Navbar` and `Footer` components
+- [x] Create Challenges List Page (`/challenges.tsx`)
+  - [x] Implement `ChallengeCard.tsx` to display individual challenges
+  - [x] Set up local data or mock API to display challenges
 - [ ] Create Challenge Details Page (`/challenges/[id].tsx`)
   - [ ] Fetch challenge details based on ID
   - [ ] Add placeholder for code editor
