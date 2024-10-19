@@ -1,1 +1,37 @@
-{}
+[
+	{
+		"title": "Simple Counter",
+		"description": "Build a simple counter component that increments and decrements a number when buttons are clicked.",
+		"difficulty": "Easy",
+		"tags": [ "hooks", "state management" ],
+		"solution": "const Counter = () => { const [count, setCount] = useState(0); return (<div><button onClick={() => setCount(count - 1)}>-</button><span>{count}</span><button onClick={() => setCount(count + 1)}>+</button></div>); };"
+	},
+	{
+		"title": "Todo List",
+		"description": "Create a Todo list application where users can add, remove, and mark tasks as complete.",
+		"difficulty": "Medium",
+		"tags": [ "state management", "props", "events" ],
+		"solution": "const TodoApp = () => { const [todos, setTodos] = useState([]); const addTodo = (todo) => setTodos([...todos, { text: todo, completed: false }]); return (<div><input type='text' /><button onClick={() => addTodo('new task')}>Add Todo</button><ul>{todos.map((todo, index) => (<li key={index}>{todo.text}</li>))}</ul></div>); };"
+	},
+	{
+		"title": "Fetch Data from API",
+		"description": "Fetch and display data from an external API using React hooks.",
+		"difficulty": "Medium",
+		"tags": [ "API", "fetch", "hooks" ],
+		"solution": "const DataFetcher = () => { const [data, setData] = useState([]); useEffect(() => { fetch('https://jsonplaceholder.typicode.com/posts').then(response => response.json()).then(data => setData(data)); }, []); return (<ul>{data.map(item => <li key={item.id}>{item.title}</li>)}</ul>); };"
+	},
+	{
+		"title": "Accordion Component",
+		"description": "Build an accordion component that expands or collapses sections when clicked.",
+		"difficulty": "Medium",
+		"tags": [ "component", "state management" ],
+		"solution": "const Accordion = ({ sections }) => { const [openIndex, setOpenIndex] = useState(null); return (<div>{sections.map((section, index) => (<div key={index}><h3 onClick={() => setOpenIndex(openIndex === index ? null : index)}>{section.title}</h3><p>{openIndex === index && section.content}</p></div>))}</div>); };"
+	},
+	{
+		"title": "Modal Window",
+		"description": "Create a modal window that opens when a button is clicked and closes when clicking outside the modal or on a close button.",
+		"difficulty": "Hard",
+		"tags": [ "state management", "events" ],
+		"solution": "const Modal = () => { const [isOpen, setIsOpen] = useState(false); return (<div><button onClick={() => setIsOpen(true)}>Open Modal</button>{isOpen && (<div><div onClick={() => setIsOpen(false)}>Close</div><div className='modal-content'>This is the modal content</div></div>)}</div>); };"
+	}
+]
