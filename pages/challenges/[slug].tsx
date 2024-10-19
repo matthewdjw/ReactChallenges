@@ -23,7 +23,7 @@ export default function ChallengePage({ challenge }: ChallengePageProps) {
     <div>
 		<Navbar/>
 		<div className="p-4">
-			<CodeEditor />
+			<CodeEditor challenge={challenge}/>
 		</div>
 		<ChallengeDetails challenge={challenge} />
     </div>
