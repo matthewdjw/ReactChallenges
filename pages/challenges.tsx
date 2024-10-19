@@ -5,6 +5,7 @@ import path from 'path';
 import { GetServerSideProps } from 'next';
 
 interface Challenge {
+	slug: string;
 	title: string;
 	description: string;
 	difficulty: 'Easy' | 'Medium' | 'Hard';

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 
 interface Challenge {
+	slug: string;
 	title: string;
 	description: string;
 	difficulty: 'Easy' | 'Medium' | 'Hard';
