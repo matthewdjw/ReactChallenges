@@ -5,6 +5,7 @@ import path from "path";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import ChallengeFilter from "@/components/challenges/ChallengeFilter";
+import React, { useState } from "react";
 
 interface Challenge {
   slug: string;
@@ -27,17 +28,26 @@ interface ChallengesPageProps {
 }
 
 const Challenges: React.FC<ChallengesPageProps> = ({ challenges, tags }) => {
+  const [selectedTag, setSelectedTag] = useState<string>();
   return (
     <div>
       <Navbar />
-      <ChallengeFilter tags={tags} />
-      {challenges.map((challenge) => (
-        <div key={challenge.title}>
-          <Link href={`challenges/${challenge.slug}`}>
-            <ChallengeCard challenge={challenge} />
-          </Link>
-        </div>
-      ))}
+      <ChallengeFilter
+        tags={tags}
+        selectedTag={selectedTag}
+        setSelectedTag={setSelectedTag}
+      />
+      {challenges
+        .filter((challenge) =>
+          selectedTag ? challenge.tags.includes(selectedTag) : true
+        )
+        .map((challenge) => (
+          <div key={challenge.title}>
+            <Link href={`challenges/${challenge.slug}`}>
+              <ChallengeCard challenge={challenge} />
+            </Link>
+          </div>
+        ))}
     </div>
   );
 };
