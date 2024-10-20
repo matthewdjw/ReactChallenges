@@ -1,50 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-interface Category {
+interface Tag {
   slug: string;
-  name: string;
-  tags: string[];
+  title: string;
+  text: string;
 }
 
 interface ChallengeFilterProps {
-  categories: Category[];
+  tags: Tag[];
 }
 
-const ChallengeFilter: React.FC<ChallengeFilterProps> = ({ categories }) => {
-
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+const ChallengeFilter: React.FC<ChallengeFilterProps> = ({ tags }) => {
   const [selectedTag, setSelectedTag] = useState<string>();
 
   return (
     <div>
-
       <div className="p-4 flex flex-wrap gap-2">
-        {categories.map((category) => (
+        {tags.map((tag) => (
           <button
-            key={category.slug}
-            className={`px-4 py-2 rounded-full text-white ${selectedCategory === category.slug ? 'bg-blue-600' : 'bg-gray-600'}`}
-            onClick={() => setSelectedCategory(category.slug)}
+            key={tag.slug}
+            className={`px-3 py-1 rounded-full text-sm ${
+              selectedTag === tag.slug
+                ? "bg-green-600 text-white"
+                : "bg-gray-300 text-black"
+            }`}
+            onClick={() => setSelectedTag(tag.slug)}
           >
-            {category.name}
+            {tag.text}
           </button>
         ))}
       </div>
-
-      {selectedCategory && (
-        <div className="p-4 flex flex-wrap gap-2">
-          {categories
-            .find((category) => category.slug === selectedCategory)
-            ?.tags.map((tag) => (
-              <button
-                key={tag}
-                className={`px-3 py-1 rounded-full text-sm ${selectedTag === tag ? 'bg-green-600 text-white' : 'bg-gray-300 text-black'}`}
-                onClick={() => setSelectedTag(tag)}
-              >
-                {tag}
-              </button>
-            ))}
-        </div>
-      )}
     </div>
   );
 };

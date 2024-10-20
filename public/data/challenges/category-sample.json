@@ -1,47 +1,122 @@
 [
-	{
-		"slug": "basics",
-		"name": "Basics",
-		"tags": [ "JSX", "Props", "State", "Conditional Rendering", "Event Handling" ]
-	},
-	{
-		"slug": "hooks",
-		"name": "Hooks",
-		"tags": [ "useState", "useEffect", "useRef" ]
-	},
-	{
-		"slug": "forms",
-		"name": "Forms",
-		"tags": [ "Controlled Components", "Form Validation" ]
-	},
-	{
-		"slug": "lists",
-		"name": "Lists & Arrays",
-		"tags": [ "Rendering Lists", "Keys", "Filtering & Mapping Data" ]
-	},
-	{
-		"slug": "styling",
-		"name": "Styling",
-		"tags": [ "Inline Styles", "CSS Modules", "Tailwind CSS" ]
-	},
-	{
-		"slug": "api-calls",
-		"name": "API Calls",
-		"tags": [ "Fetch API", "Axios" ]
-	},
-	{
-		"slug": "routing",
-		"name": "Routing (React Router)",
-		"tags": [ "Simple Routes", "Navigation" ]
-	},
-	{
-		"slug": "context",
-		"name": "Context",
-		"tags": [ "Basic Context API" ]
-	},
-	{
-		"slug": "performance",
-		"name": "Performance",
-		"tags": [ "React.memo", "useCallback", "useMemo" ]
-	}
+  {
+    "slug": "jsx",
+    "title": "ReactJS JSX Challenges",
+    "text": "JSX"
+  },
+  {
+    "slug": "props",
+    "title": "ReactJS Props Challenges",
+    "text": "Props"
+  },
+  {
+    "slug": "state",
+    "title": "ReactJS State Management Challenges",
+    "text": "State"
+  },
+  {
+    "slug": "conditional-rendering",
+    "title": "ReactJS Conditional Rendering Challenges",
+    "text": "Conditional Rendering"
+  },
+  {
+    "slug": "event-handling",
+    "title": "ReactJS Event Handling Challenges",
+    "text": "Event Handling"
+  },
+  {
+    "slug": "use-state",
+    "title": "ReactJS useState Hook Challenges",
+    "text": "useState"
+  },
+  {
+    "slug": "use-effect",
+    "title": "ReactJS useEffect Hook Challenges",
+    "text": "useEffect"
+  },
+  {
+    "slug": "use-ref",
+    "title": "ReactJS useRef Hook Challenges",
+    "text": "useRef"
+  },
+  {
+    "slug": "controlled-components",
+    "title": "ReactJS Controlled Components Challenges",
+    "text": "Controlled Components"
+  },
+  {
+    "slug": "form-validation",
+    "title": "ReactJS Form Validation Challenges",
+    "text": "Form Validation"
+  },
+  {
+    "slug": "rendering-lists",
+    "title": "ReactJS Rendering Lists Challenges",
+    "text": "Rendering Lists"
+  },
+  {
+    "slug": "keys",
+    "title": "ReactJS Keys in Lists Challenges",
+    "text": "Keys"
+  },
+  {
+    "slug": "filtering-mapping-data",
+    "title": "ReactJS Filtering & Mapping Data Challenges",
+    "text": "Filtering & Mapping Data"
+  },
+  {
+    "slug": "inline-styles",
+    "title": "ReactJS Inline Styles Challenges",
+    "text": "Inline Styles"
+  },
+  {
+    "slug": "css-modules",
+    "title": "ReactJS CSS Modules Challenges",
+    "text": "CSS Modules"
+  },
+  {
+    "slug": "tailwind-css",
+    "title": "ReactJS Tailwind CSS Challenges",
+    "text": "Tailwind CSS"
+  },
+  {
+    "slug": "fetch-api",
+    "title": "ReactJS Fetch API Challenges",
+    "text": "Fetch API"
+  },
+  {
+    "slug": "axios",
+    "title": "ReactJS Axios API Challenges",
+    "text": "Axios"
+  },
+  {
+    "slug": "simple-routes",
+    "title": "ReactJS Simple Routes Challenges",
+    "text": "Simple Routes"
+  },
+  {
+    "slug": "navigation",
+    "title": "ReactJS Navigation Challenges",
+    "text": "Navigation"
+  },
+  {
+    "slug": "context-api",
+    "title": "ReactJS Basic Context API Challenges",
+    "text": "Context API"
+  },
+  {
+    "slug": "react-memo",
+    "title": "ReactJS React.memo Challenges",
+    "text": "React.memo"
+  },
+  {
+    "slug": "use-callback",
+    "title": "ReactJS useCallback Hook Challenges",
+    "text": "useCallback"
+  },
+  {
+    "slug": "use-memo",
+    "title": "ReactJS useMemo Hook Challenges",
+    "text": "useMemo"
+  }
 ]
