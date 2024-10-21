@@ -9,6 +9,7 @@ const CreateChallenge: FC<CreateChallengeProps> = ({}) => {
   const [difficulty, setDifficulty] = useState("Medium");
   const [tags, setTags] = useState<string[]>([]);
   const [solution, setSolution] = useState("");
+  const [starter, setStarter] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -128,6 +129,19 @@ const CreateChallenge: FC<CreateChallengeProps> = ({}) => {
           >
             Add Tag
           </button>
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">
+            Starter
+          </label>
+          <textarea
+            value={starter}
+            onChange={(e) => setStarter(e.target.value)}
+            className="mt-1 block w-full p-2 border rounded-md"
+            placeholder="const DataFetcher = () => { ... }"
+            rows={6}
+          />
         </div>
 
         <div className="mb-4">
