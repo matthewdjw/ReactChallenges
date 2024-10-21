@@ -5,6 +5,7 @@ import path from "path";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import ChallengeFilter from "@/components/challenges/ChallengeFilter";
+import { supabase } from "@/lib/supabaseClient";
 import React, { useState } from "react";
 
 interface Challenge {
@@ -12,7 +13,7 @@ interface Challenge {
   title: string;
   description: string;
   difficulty: "Easy" | "Medium" | "Hard";
-  tags: string[];
+  tags: string;
   solution: string;
 }
 
@@ -39,7 +40,7 @@ const Challenges: React.FC<ChallengesPageProps> = ({ challenges, tags }) => {
       />
       {challenges
         .filter((challenge) =>
-          selectedTag ? challenge.tags.includes(selectedTag) : true
+          selectedTag ? challenge.tags.split(",").includes(selectedTag) : true
         )
         .map((challenge) => (
           <div key={challenge.title}>
@@ -54,14 +55,13 @@ const Challenges: React.FC<ChallengesPageProps> = ({ challenges, tags }) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetching the challenges data
-  const challengeFilePath = path.join(
-    process.cwd(),
-    "public/data/challenges",
-    "challenge-sample.json"
-  );
-  const challengeJsonData = fs.readFileSync(challengeFilePath);
-  const challenges: Challenge[] = JSON.parse(challengeJsonData.toString());
-
+  const { data: challenges, error } = await supabase
+    .from("challenges")
+    .select("*");
+  if (error) {
+    console.error("Error fetching challenges from Supabase:", error);
+    return { props: { challenges: [], tags: [] } };
+  }
   // Fetching the categories data
   const tagFilePath = path.join(
     process.cwd(),

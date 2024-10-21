@@ -1,37 +1,26 @@
-import React, { FC } from 'react';
-import { Sandpack } from '@codesandbox/sandpack-react';
+import React, { FC } from "react";
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 interface Challenge {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
+  starter: string;
 }
 
 interface CodeEditorProps {
-	challenge: Challenge;
+  challenge: Challenge;
 }
 
 const CodeEditor: FC<CodeEditorProps> = ({ challenge }) => {
-	return (
-		<Sandpack
-			template="react"
-			theme="auto"
-			files={{
-				'/App.js': `import React, { useState } from 'react'
-
-function App() {
-	return (
-		<div>
-			<h1>Let's get started!</h1>
-			<p>You are completing the problem: <u>${challenge.title}</u>.</p>
-			<p>Start coding here to see your changes.</p>
-		</div>
-	)
-}
-				
-export default App;`
-			}}
-		/>
-	);
+  return (
+    <Sandpack
+      template="react"
+      theme="auto"
+      files={{
+        "/App.js": `${challenge.starter}`,
+      }}
+    />
+  );
 };
 
 export default CodeEditor;

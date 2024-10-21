@@ -1,17 +1,19 @@
-import fs from 'fs';
-import path from 'path';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import CodeEditor from '../../components/code-editor/CodeEditor';
-import Navbar from '../../components/common/Navbar';
-import ChallengeDetails from '../../components/challenges/ChallengeDetails'
+import fs from "fs";
+import path from "path";
+import { GetStaticProps, GetStaticPaths } from "next";
+import CodeEditor from "../../components/code-editor/CodeEditor";
+import Navbar from "../../components/common/Navbar";
+import ChallengeDetails from "../../components/challenges/ChallengeDetails";
+import { supabase } from "../../lib/supabaseClient";
 
 interface Challenge {
   slug: string;
   title: string;
   description: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-  tags: string[];
+  difficulty: "Easy" | "Medium" | "Hard";
+  tags: string;
   solution: string;
+  starter: string;
 }
 
 interface ChallengePageProps {
@@ -21,35 +23,48 @@ interface ChallengePageProps {
 export default function ChallengePage({ challenge }: ChallengePageProps) {
   return (
     <div>
-		<Navbar/>
-		<div className="p-4">
-			<CodeEditor challenge={challenge}/>
-		</div>
-		<ChallengeDetails challenge={challenge} />
+      <Navbar />
+      <div className="p-4">
+        <CodeEditor challenge={challenge} />
+      </div>
+      <ChallengeDetails challenge={challenge} />
     </div>
   );
 }
 export const getStaticPaths: GetStaticPaths = async () => {
-	const filePath = path.join(process.cwd(), 'public/data/challenges', 'challenge-sample.json');
-	const jsonData = fs.readFileSync(filePath);
-	const challenges: Challenge[] = JSON.parse(jsonData.toString());
+  const { data: challenges, error } = await supabase
+    .from("challenges")
+    .select("slug");
 
-	const paths = challenges.map((challenge) => ({
-		params: { slug: challenge.slug.toString() }
-	}));
+  if (error) {
+    console.error("Error fetching slugs from Supabase:", error);
+    return { paths: [], fallback: false };
+  }
 
-	return { paths, fallback: false };
+  const paths = challenges.map((challenge) => ({
+    params: { slug: challenge.slug },
+  }));
+
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const filePath = path.join(process.cwd(), 'public/data/challenges', 'challenge-sample.json');
-	const jsonData = fs.readFileSync(filePath);
-	const challenges: Challenge[] = JSON.parse(jsonData.toString());
-	const challenge = challenges.find((ch) => ch.slug === params?.slug);
+  const { slug } = params as { slug: string };
 
-	return {
-		props: {
-			challenge: challenge
-		}
-	};
+  const { data: challenge, error } = await supabase
+    .from("challenges")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error) {
+    console.error("Error fetching challenge from Supabase:", error);
+    return { notFound: true };
+  }
+
+  return {
+    props: {
+      challenge,
+    },
+  };
 };
